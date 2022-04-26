@@ -43,8 +43,8 @@ def plot(value):
         fig.add_vrect(x0='2017-06-01 11:30', x1='2017-06-01 12:30', line_dash='dash', \
                       fillcolor='green', annotation_text='mid day', opacity=0.75, annotation_position='bottom right')
     elif value == 'order_qty':
-        order_qty_s = (trade_analysis_obj.df.groupby('taker_side').count()['base_amount'] / \
-        trade_analysis_obj.df.groupby('taker_side').count()['base_amount'].sum()).round(4)
+        order_qty_s = (trade_analysis_obj.df.groupby('taker_side').count()['quantity'] / \
+        trade_analysis_obj.df.groupby('taker_side').count()['quantity'].sum()).round(4)
         order_qty_df = pd.DataFrame(order_qty_s)
         order_qty_df.loc[:,'side'] = order_qty_df.index.tolist()
         fig = px.pie(order_qty_df, values='quantity',names='side', title='Percentage of BUY vs SELL orders',\
