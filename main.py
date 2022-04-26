@@ -18,7 +18,7 @@ app.layout = html.Div([html.H1('Trade analysis - Toy example'),\
 
 @app.callback(
   Output(component_id='info_plot',component_property='figure'),\
-  Input(component_id='info',component_property='value')
+  Input(component_id='info', component_property='value')
 )
 def plot(value):
     if value == 'price_execution':
@@ -47,7 +47,7 @@ def plot(value):
         trade_analysis_obj.df.groupby('taker_side').count()['quantity'].sum()).round(4)
         order_qty_df = pd.DataFrame(order_qty_s)
         order_qty_df.loc[:,'side'] = order_qty_df.index.tolist()
-        fig = px.pie(order_qty_df, values='quantity',names='side', title='Percentage of BUY vs SELL orders',\
+        fig = px.pie(order_qty_df, values='quantity', names='side', title='Percentage of BUY vs SELL orders',\
                      hole=.4)
 
     elif value == 'side_dist':
