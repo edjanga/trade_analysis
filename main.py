@@ -51,7 +51,7 @@ def plot(value):
                      hole=.4)
 
     elif value == 'side_dist':
-        fig = px.histogram(trade_analysis_obj.df, x='base_amount', color='taker_side', \
+        fig = px.histogram(trade_analysis_obj.df, x='quantity', color='taker_side', \
                            title='Distribution of trades - Direction', text_auto=True)
         fig.show()
 
